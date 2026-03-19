@@ -1,10 +1,7 @@
 package kg.megalab.first_service.controllers;
 
 import kg.megalab.first_service.models.Car;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CarController {
@@ -42,6 +39,12 @@ public class CarController {
         Car car = new Car();
         car.setId(carId);
         car.setModel(model);
+        return car;
+    }
+
+    @PostMapping("/car")
+    public Car saveCar(@RequestBody Car car){
+        System.out.println(car);
         return car;
     }
 
